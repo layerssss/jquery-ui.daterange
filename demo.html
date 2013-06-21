@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+	<script src="moment.js"></script>
+	<script src="jquery-ui.datarange.js"></script>
+	<link rel="stylesheet" href="jquery-ui.css">
+</head>
+<body>
+	<p>
+		<span class="start">null</span> - 
+		<span class="end">null</span>
+	</p>
+
+	<div class="datarange"></div>
+	<script type="text/javascript">
+		$(".datarange").datarange({
+			numberOfMonths: 3
+		}).on('datarange:selecting',function(ev, start, end){
+			$('.start').text(moment(start).format('LLL'));
+			$('.end').text(moment(end).format('LLL'));
+		});
+	</script>
+</body>
+</html>
